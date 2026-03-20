@@ -1,0 +1,1 @@
+BOTFORMA è progettato per aprire il portale esterno del corso e lasciare all'operatore umano il login SPID e l'azione finale Firma / Invia.

@@ -1,0 +1,79 @@
+{
+  "name": "botforma",
+  "version": "1.1.0",
+  "description": "BOTFORMA desktop Windows app for local course and trainee workflow management.",
+  "main": "dist-electron/main.js",
+  "author": "OpenAI",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "build:renderer": "vite build",
+    "build:main": "tsc -p tsconfig.electron.json",
+    "build": "npm run build:renderer && npm run build:main",
+    "dist:win": "npm run build && electron-builder --win nsis portable",
+    "package:deliverable": "node scripts/create-deliverable.mjs",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "electron-log": "^5.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "wait-on": "^8.0.2"
+  },
+  "build": {
+    "appId": "it.botforma.desktop",
+    "productName": "BOTFORMA",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets",
+        "filter": [
+          "**/*",
+          "!**/*.psd"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BOTFORMA"
+    }
+  }
+}
