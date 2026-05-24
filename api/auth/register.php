@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/../_bootstrap.php'; use App\Models\User; $u=new User(); $id=$u->create(['role_id'=>4,'name'=>trim($_POST['name']??''),'email'=>trim($_POST['email']??''),'password'=>password_hash($_POST['password']??'',PASSWORD_DEFAULT),'status'=>'active']); jsonResponse(['id'=>$id],201);

@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/../_bootstrap.php'; use App\Services\QrService; $token=bin2hex(random_bytes(16)); $path=BASE_PATH.'/storage/qrcodes/'.$token.'.png'; (new QrService())->generate($_POST['payload']??$token,$path); jsonResponse(['path'=>$path]);

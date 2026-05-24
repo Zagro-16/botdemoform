@@ -1,0 +1,3 @@
+<?php include __DIR__ . '/../layouts/header.php'; ?>
+<h2>Iscrizione Evento</h2><form method="post" action="/api/participants/register.php" class="row g-2"><input type="hidden" name="csrf_token" value="<?=csrf_token()?>"><div class="col-md-6"><input class="form-control" name="first_name" placeholder="Nome" required></div><div class="col-md-6"><input class="form-control" name="last_name" placeholder="Cognome" required></div><div class="col-12"><input class="form-control" name="email" type="email" placeholder="Email" required></div><div class="col-12"><button class="btn btn-info">Registrati</button></div></form>
+<?php include __DIR__ . '/../layouts/footer.php'; ?>
