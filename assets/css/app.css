@@ -1,0 +1,1 @@
+:root{--night:#0b1020;--violet:#6f42c1;--neon:#43d6ff}.bg-night{background:linear-gradient(145deg,#0a0f1f,#1b1440)}.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:16px}.dark-mode{filter:hue-rotate(180deg)}

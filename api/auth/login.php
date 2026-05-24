@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/../_bootstrap.php'; use App\Services\AuthService; $a=new AuthService(); $ok=$a->login($_POST['email']??'',$_POST['password']??''); jsonResponse(['success'=>$ok], $ok?200:401);
